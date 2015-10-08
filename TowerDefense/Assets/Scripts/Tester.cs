@@ -5,19 +5,20 @@ public class Tester : MonoBehaviour {
 
     public Transform spawn;
     public TankNode Tank;
-    GameObject[] waypts;
+    public GameObject[] waypts;
     Vector3[] waypoints;
 
 	// Use this for initialization
 	void Start () {
-        waypts = GameObject.FindGameObjectsWithTag("Waypoint");
+        //waypts = GameObject.FindGameObjectsWithTag("Waypoint");
 
         waypoints = new Vector3[waypts.Length];
-        int pos = waypts.Length - 1;
         for(int count = 0; count < waypts.Length; count++)
         {
-            waypoints[pos--] = waypts[count].transform.position;
+            Debug.Log(waypts[count].name);
+            waypoints[count] = waypts[count].transform.position;
         }
+        //Debug.Break();
         StartCoroutine(SpawnTanks(3));
     }
     IEnumerator SpawnTanks(int num)
