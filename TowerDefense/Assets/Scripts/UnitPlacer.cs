@@ -51,6 +51,7 @@ public class UnitPlacer : MonoBehaviour {
         isPlacing = true;
         currentUnit = unitIndex;
         placeholder = Instantiate(units[currentUnit]);
+        placeholder.enabled = true;
         placeholder.GetComponent<TurretNode>().enabled = false;
     }
 
@@ -60,17 +61,19 @@ public class UnitPlacer : MonoBehaviour {
         StartPlacing(currentUnit);
     }
 
-    void StopPlacing()
+    public void StopPlacing()
     {
-        isPlacing = false;
+        if(isPlacing)
+        {
+            isPlacing = false;
+            Destroy(placeholder.gameObject);
+        }
     }
 
     public void ReplaceUnit(int unitIndex)
     {
-        if(isPlacing && unitIndex != currentUnit)
-        {
-            Destroy(placeholder);
-        }
+        if(placeholder != null)
+            Destroy(placeholder.gameObject);
         StartPlacing(unitIndex);
     }
 

@@ -57,7 +57,7 @@ public class TankNode : NodeTemplate {
         }
     }
 
-    public void SetWaypoints(Vector3[] points)//not used right now but can be used in the future to set the waypoints from another script
+    public void SetWaypoints(Vector3[] points)
     {
         waypoints = points;
     }
