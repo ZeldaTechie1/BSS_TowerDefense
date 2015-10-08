@@ -37,7 +37,7 @@ public class UnitPlacer : MonoBehaviour {
                 Debug.DrawLine(ray.origin, newPos, Color.green);
                 placeholder.transform.position = newPos;
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 Place();
             }
